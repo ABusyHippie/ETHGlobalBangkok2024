@@ -6,6 +6,7 @@ import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon, WalletIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/fil-frame";
+import AIChatFeed from "./debug/page";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
@@ -57,6 +58,12 @@ const Home: NextPage = () => {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Feed Section */}
+        <div className="w-full max-w-4xl mx-auto mt-16 px-8 mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">Latest Bot Interactions</h2>
+          <AIChatFeed />
         </div>
       </div>
     </>
