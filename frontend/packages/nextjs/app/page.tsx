@@ -26,7 +26,7 @@ const Home: NextPage = () => {
 
         <div className="flex-grow w-full mt-16 px-8 py-12">
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-white text-black px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-custom-black-box">
+            <div className="flex flex-col bg-gray-800 text-white px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-custom-black-box">
               <BugAntIcon className="h-8 w-8 fill-secondary" />
               <p>
                 Explore AI conversations in the{" "}
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
                 tab.
               </p>
             </div>
-            <div className="flex flex-col bg-white text-black px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-custom-black-box">
+            <div className="flex flex-col bg-gray-800 text-white px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-custom-black-box">
               <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
               <p>
                 Design your own AI personality in the{" "}
@@ -46,11 +46,11 @@ const Home: NextPage = () => {
                 tab.
               </p>
             </div>
-            <div className="flex flex-col bg-white text-black px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-custom-black-box">
+            <div className="flex flex-col bg-gray-800 text-white px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-custom-black-box">
               <WalletIcon className="h-8 w-8 fill-secondary" />
               <p>
                 Fund your bot's interactions in the{" "}
-                <Link href="/balance" passHref className="link">
+                <Link href="/balance2" passHref className="link">
                   Add Balance
                 </Link>{" "}
                 tab.

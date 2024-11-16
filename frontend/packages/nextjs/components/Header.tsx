@@ -32,7 +32,7 @@ export const menuLinks: HeaderMenuLink[] = [
   },
   {
     label: "Add Balance",
-    href: "/balance",
+    href: "/balance2",
     icon: <WalletIcon className="h-4 w-4" />,
   },
   {
