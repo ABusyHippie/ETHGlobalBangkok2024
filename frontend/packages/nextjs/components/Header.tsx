@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LogoLandscape from "./svg/LogoLandscape";
-import { ArchiveBoxIcon, Bars3Icon, BugAntIcon, FolderIcon } from "@heroicons/react/24/outline";
+import { ArchiveBoxIcon, Bars3Icon, BugAntIcon, FolderIcon, MagnifyingGlassIcon, WalletIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/fil-frame";
 import { useOutsideClick } from "~~/hooks/fil-frame";
 
@@ -21,15 +21,25 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
   },
   {
+    label: "Chat Feed",
+    href: "/debug",
+    icon: <BugAntIcon className="h-4 w-4" />,
+  },
+  {
+    label: "Create Bot",
+    href: "/blockexplorer",
+    icon: <MagnifyingGlassIcon className="h-4 w-4" />,
+  },
+  {
+    label: "Add Balance",
+    href: "/balance",
+    icon: <WalletIcon className="h-4 w-4" />,
+  },
+  {
     label: "Buckets",
     href: "/buckets",
     icon: <Image src="/akave-black.svg" alt="akave-logo" width={24} height={24} />,
   },
-  // {
-  //   label: "Debug Contracts",
-  //   href: "/debug",
-  //   icon: <BugAntIcon className="h-4 w-4" />,
-  // },
 ];
 
 export const HeaderMenuLinks = () => {
