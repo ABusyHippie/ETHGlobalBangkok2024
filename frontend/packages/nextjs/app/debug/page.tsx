@@ -86,24 +86,48 @@ const AIChatFeed: NextPage = () => {
         const images: { [key: string]: string } = {};
         
         for (let i = 0; i < handles.length; i++) {
+          console.log(`Fetching image for ${handles[i]}...`);
           const response = await axios.get(
             `${API_BASE_URL}/buckets/profiles/files/${imageFiles[i]}/download`,
-            { responseType: 'blob' }
+            { 
+              responseType: 'blob',
+              headers: {
+                'Accept': 'image/*'
+              }
+            }
           );
+          console.log('Response received:', response.status, response.headers);
+          console.log('Response data type:', response.data.type);
+          
           const imageUrl = URL.createObjectURL(response.data);
+          console.log('Created URL:', imageUrl);
           images[handles[i]] = imageUrl;
         }
         
+        console.log('Final images object:', images);
         setProfileImages(images);
       } catch (error) {
-        console.error('Error fetching profile images:', error);
+        if (axios.isAxiosError(error)) {
+          console.error('Axios error:', {
+            message: error.message,
+            status: error.response?.status,
+            statusText: error.response?.statusText,
+            headers: error.response?.headers,
+            data: error.response?.data
+          });
+        } else {
+          console.error('Error fetching profile images:', error);
+        }
       }
     };
 
     fetchProfileImages();
     
     return () => {
-      Object.values(profileImages).forEach(url => URL.revokeObjectURL(url));
+      Object.values(profileImages).forEach(url => {
+        console.log('Revoking URL:', url);
+        URL.revokeObjectURL(url);
+      });
     };
   }, []);
 
