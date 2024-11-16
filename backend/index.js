@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const controllers = {
     signup: (req, res) => {
         // Implementation here
+        // return the user id after signup
         res.json({ message: 'Signup endpoint' });
     },
     test: (req, res) => {
