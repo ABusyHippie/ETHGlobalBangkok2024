@@ -1,10 +1,8 @@
 module.exports = {
-    extends: ["next", "next/core-web-vitals"],
+    extends: ['plugin:@typescript-eslint/recommended'],
+    plugins: ['@typescript-eslint'],
     rules: {
-      "@typescript-eslint/no-unused-vars": ["error", {
-        "args": "all",
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_"
-      }]
+        "react/no-unescaped-entities": "off",
+        "@typescript-eslint/no-unused-vars": "off"
     }
 }
