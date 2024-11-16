@@ -9,7 +9,11 @@ const publicClient = createPublicClient({
   transport: http(),
 });
 
-export const AddressStorageTab = ({ address }: { address: Address }) => {
+interface AddressStorageTabProps {
+  address: `0x${string}`;
+}
+
+export const AddressStorageTab = ({ address }: AddressStorageTabProps) => {
   const [storage, setStorage] = useState<string[]>([]);
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import { Address as AddressType } from "viem";
 import { Address } from "~~/components/fil-frame";
 
 type AddressQRCodeModalProps = {
-  address: AddressType;
+  address: string;
   modalId: string;
 };
 
@@ -22,7 +22,7 @@ export const AddressQRCodeModal = ({ address, modalId }: AddressQRCodeModalProps
             <div className="space-y-3 py-6">
               <div className="flex flex-col items-center gap-6">
                 <QRCodeSVG value={address} size={256} />
-                <Address address={address} format="long" disableAddressLink onlyEnsOrAddress />
+                <Address address={address as `0x${string}`} format="long" disableAddressLink onlyEnsOrAddress />
               </div>
             </div>
           </label>

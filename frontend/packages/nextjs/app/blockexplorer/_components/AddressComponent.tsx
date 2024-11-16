@@ -29,7 +29,7 @@ export const AddressComponent = ({
           </div>
         </div>
       </div>
-      <ContractTabs address={address} contractData={contractData} />
+      <ContractTabs address={address as `0x${string}`} contractData={contractData} />
     </div>
   );
 };

@@ -2,7 +2,11 @@ import { Address } from "viem";
 import { useContractLogs } from "~~/hooks/fil-frame";
 import { replacer } from "~~/utils/fil-frame/common";
 
-export const AddressLogsTab = ({ address }: { address: Address }) => {
+interface AddressLogsTabProps {
+  address: `0x${string}`;
+}
+
+export const AddressLogsTab = ({ address }: AddressLogsTabProps) => {
   const contractLogs = useContractLogs(address);
 
   return (
