@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useAccount } from "wagmi";
 import { useWatchBalance } from "./useWatchBalance";
 import { formatEther } from "viem";
+import { useAccount } from "wagmi";
 
 const EARNINGS_STORAGE_KEY = "bot_earnings";
 
@@ -9,7 +9,7 @@ export const useBotsEarnings = () => {
   const { address } = useAccount();
   const [totalEarnings, setTotalEarnings] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   const { data: currentBalance } = useWatchBalance({ address });
 
   useEffect(() => {
@@ -37,4 +37,4 @@ export const useBotsEarnings = () => {
   }, [address]);
 
   return { totalEarnings, isLoading };
-}; 
+};

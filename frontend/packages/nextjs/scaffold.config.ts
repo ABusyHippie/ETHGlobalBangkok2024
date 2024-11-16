@@ -1,4 +1,5 @@
 import * as chains from "viem/chains";
+
 export const akaveFuji = {
   id: 78963,
   name: "Akave Fuji",
@@ -24,7 +25,6 @@ export const akaveFuji = {
   testnet: true,
 } as const satisfies chains.Chain;
 
-
 export type ScaffoldConfig = {
   targetNetworks: readonly chains.Chain[];
   pollingInterval: number;
@@ -32,7 +32,6 @@ export type ScaffoldConfig = {
   walletConnectProjectId: string;
   onlyLocalBurnerWallet: boolean;
 };
-
 
 const scaffoldConfig = {
   // The networks on which your DApp is live

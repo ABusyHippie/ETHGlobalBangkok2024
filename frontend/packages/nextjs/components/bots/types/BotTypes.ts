@@ -12,4 +12,4 @@ export interface Bot {
 export interface StoredBot extends Bot {
   id: string;
   createdAt: string;
-} 
+}

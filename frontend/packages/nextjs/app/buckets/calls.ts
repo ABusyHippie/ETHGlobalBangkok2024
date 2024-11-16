@@ -29,14 +29,14 @@ export const fetchBuckets = async (): Promise<Bucket[]> => {
   try {
     const response = await fetch("/api/akave/bucket");
     const result = await response.json();
-    
+
     if (result.success && result.data) {
       // Fetch files for each bucket
       const bucketsWithFiles = await Promise.all(
         result.data.map(async (bucket: Bucket) => ({
           ...bucket,
-          files: await fetchBucketFiles(bucket.Name)
-        }))
+          files: await fetchBucketFiles(bucket.Name),
+        })),
       );
       return bucketsWithFiles;
     }
@@ -67,8 +67,8 @@ export const createBucket = async (bucketName: string): Promise<boolean> => {
 
 // Upload file to bucket
 export const uploadFile = async (
-  bucketName: string, 
-  file: File
+  bucketName: string,
+  file: File,
 ): Promise<{ success: boolean; transactionHash: string }> => {
   try {
     const formData = new FormData();
@@ -86,4 +86,4 @@ export const uploadFile = async (
     console.error("Error uploading file:", error);
     return { success: false, transactionHash: "" };
   }
-}; 
+};

@@ -5,7 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import LogoLandscape from "./svg/LogoLandscape";
-import { ArchiveBoxIcon, Bars3Icon, BugAntIcon, FolderIcon, MagnifyingGlassIcon, WalletIcon, ArrowTrendingUpIcon, ArrowTrendingDownIcon } from "@heroicons/react/24/outline";
+import {
+  ArchiveBoxIcon,
+  ArrowTrendingDownIcon,
+  ArrowTrendingUpIcon,
+  Bars3Icon,
+  BugAntIcon,
+  FolderIcon,
+  MagnifyingGlassIcon,
+  WalletIcon,
+} from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/fil-frame";
 import { useOutsideClick } from "~~/hooks/fil-frame";
 import { useBotsEarnings } from "~~/hooks/fil-frame/useBotsEarnings";
@@ -119,10 +128,10 @@ export const Header = () => {
       <div className="navbar-end flex-grow mr-4">
         <div className="flex items-center mr-4">
           {!isLoading && totalEarnings !== undefined && (
-            <button 
-              onClick={() => router.push('/balance2')}
+            <button
+              onClick={() => router.push("/balance2")}
               className={`flex items-center gap-1 px-3 py-1 rounded-full transition-colors hover:opacity-80 ${
-                totalEarnings >= 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                totalEarnings >= 0 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
               }`}
             >
               {totalEarnings >= 0 ? (
@@ -131,7 +140,8 @@ export const Header = () => {
                 <ArrowTrendingDownIcon className="h-4 w-4" />
               )}
               <span className="font-medium">
-                {totalEarnings >= 0 ? '+' : ''}{Number(totalEarnings).toFixed(2)} FIL
+                {totalEarnings >= 0 ? "+" : ""}
+                {Number(totalEarnings).toFixed(2)} FIL
               </span>
             </button>
           )}

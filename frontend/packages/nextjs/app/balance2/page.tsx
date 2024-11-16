@@ -2,7 +2,7 @@
 
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import { ArrowTrendingUpIcon, ArrowTrendingDownIcon } from "@heroicons/react/24/outline";
+import { ArrowTrendingDownIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/outline";
 import { Balance } from "~~/components/fil-frame";
 import { useBotsEarnings } from "~~/hooks/fil-frame/useBotsEarnings";
 
@@ -15,9 +15,7 @@ const BalancePage: NextPage = () => {
       {/* Header Section */}
       <div className="flex flex-col mb-8 border-b-2 border-black pb-4">
         <h1 className="text-4xl font-bold mb-4">Bot Balance & Earnings</h1>
-        <p className="text-lg mb-4">
-          Track your bot's balance and earnings performance.
-        </p>
+        <p className="text-lg mb-4">Track your bot's balance and earnings performance.</p>
       </div>
 
       {/* Main Content Grid */}
@@ -65,16 +63,19 @@ const BalancePage: NextPage = () => {
           <div className="bg-gray-800 text-white rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
             <h2 className="text-2xl font-bold mb-4">Earnings Overview</h2>
             <div className="flex items-center gap-4 mb-6">
-              <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
-                totalEarnings >= 0 ? 'bg-green-500/20' : 'bg-red-500/20'
-              }`}>
+              <div
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+                  totalEarnings >= 0 ? "bg-green-500/20" : "bg-red-500/20"
+                }`}
+              >
                 {totalEarnings >= 0 ? (
                   <ArrowTrendingUpIcon className="h-6 w-6" />
                 ) : (
                   <ArrowTrendingDownIcon className="h-6 w-6" />
                 )}
                 <span className="text-2xl font-bold">
-                  {totalEarnings >= 0 ? '+' : ''}{totalEarnings.toFixed(2)} FIL
+                  {totalEarnings >= 0 ? "+" : ""}
+                  {totalEarnings.toFixed(2)} FIL
                 </span>
               </div>
             </div>

@@ -887,8 +887,7 @@ const deployedContracts = {
                       type: "uint64",
                     },
                   ],
-                  internalType:
-                    "struct MarketTypes.GetDealDataCommitmentReturn",
+                  internalType: "struct MarketTypes.GetDealDataCommitmentReturn",
                   name: "dealCommitment",
                   type: "tuple",
                 },

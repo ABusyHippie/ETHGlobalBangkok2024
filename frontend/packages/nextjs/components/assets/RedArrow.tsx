@@ -9,23 +9,10 @@ export default function RedArrow(props) {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <rect
-        {...props}
-        width={props.width || "544"}
-        height={props.height || "848"}
-        fill="url(#pattern0_1_3)"
-      />
+      <rect {...props} width={props.width || "544"} height={props.height || "848"} fill="url(#pattern0_1_3)" />
       <defs>
-        <pattern
-          id="pattern0_1_3"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use
-            xlinkHref="#image0_1_3"
-            transform="scale(0.00183824 0.00117925)"
-          />
+        <pattern id="pattern0_1_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_1_3" transform="scale(0.00183824 0.00117925)" />
         </pattern>
         <image
           id="image0_1_3"

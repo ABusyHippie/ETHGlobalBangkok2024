@@ -28,6 +28,7 @@
     "start": "yarn workspace @fil-frame/nextjs start"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
   },

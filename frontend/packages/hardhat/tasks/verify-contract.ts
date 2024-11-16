@@ -91,7 +91,9 @@ function extractVerificationData(network: string, contractName: string) {
       acc[key] = solhint.sources[key]; // Add other sources
 
       return acc;
-    }, {});
+    },
+    {}
+  );
 
   const contractToVerify = Object.keys(sourceFiles).find((key) =>
     key.includes(contractName + ".sol")

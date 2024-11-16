@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { File } from "../calls";
 import { formatDate, formatFileSize, getFileTypeInfo } from "../utils";
-import { ChevronDownIcon, ChevronRightIcon, ArrowDownTrayIcon, ShareIcon } from "@heroicons/react/24/outline";
 import { DocEndpoint } from "./doc-component";
+import { ArrowDownTrayIcon, ChevronDownIcon, ChevronRightIcon, ShareIcon } from "@heroicons/react/24/outline";
 
 interface FilePreviewProps {
   file: File;
@@ -25,7 +25,7 @@ export const FilePreview = ({ file, bucketName, isOpen, onToggle }: FilePreviewP
       setShowCopied(true);
       setTimeout(() => setShowCopied(false), 2000); // Hide after 2 seconds
     } catch (err) {
-      console.error('Failed to copy:', err);
+      console.error("Failed to copy:", err);
     }
   };
 

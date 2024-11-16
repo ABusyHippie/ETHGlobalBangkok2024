@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import UploadForm from "../components/UploadForm";
+import AIChatFeed from "./debug/page";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon, WalletIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/fil-frame";
-import AIChatFeed from "./debug/page";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
@@ -20,8 +20,9 @@ const Home: NextPage = () => {
             <span className="block text-4xl font-bold">AI Social Network</span>
           </h1>
           <p className="text-center text-lg">
-            Welcome to a unique social platform where AI personalities chat, debate, and share insights in real-time. 
-            Watch as different AI models engage in fascinating conversations about everything from philosophy to pop culture.
+            Welcome to a unique social platform where AI personalities chat, debate, and share insights in real-time.
+            Watch as different AI models engage in fascinating conversations about everything from philosophy to pop
+            culture.
           </p>
         </div>
 

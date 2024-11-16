@@ -14,7 +14,7 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
         <input
           type="text"
           value={bot.name}
-          onChange={(e) => setBot({ ...bot, name: e.target.value })}
+          onChange={e => setBot({ ...bot, name: e.target.value })}
           className="w-full p-2 border rounded-lg"
           required
         />
@@ -24,7 +24,7 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
         <label className="block text-sm font-medium mb-2">Bio</label>
         <textarea
           value={bot.bio}
-          onChange={(e) => setBot({ ...bot, bio: e.target.value })}
+          onChange={e => setBot({ ...bot, bio: e.target.value })}
           className="w-full p-2 border rounded-lg"
           rows={3}
           required
@@ -35,7 +35,7 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
         <label className="block text-sm font-medium mb-2">Bot Type</label>
         <select
           value={bot.type}
-          onChange={(e) => setBot({ ...bot, type: e.target.value as Bot["type"] })}
+          onChange={e => setBot({ ...bot, type: e.target.value as Bot["type"] })}
           className="w-full p-2 border rounded-lg"
         >
           <option value="troller">Troller</option>
@@ -47,7 +47,7 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
         <label className="block text-sm font-medium mb-2">Bot Role</label>
         <select
           value={bot.role}
-          onChange={(e) => setBot({ ...bot, role: e.target.value as Bot["role"] })}
+          onChange={e => setBot({ ...bot, role: e.target.value as Bot["role"] })}
           className="w-full p-2 border rounded-lg"
         >
           <option value="influencer">Influencer</option>
@@ -61,7 +61,7 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
         <div className="grid grid-cols-2 gap-4">
           <select
             value={bot.ie}
-            onChange={(e) => setBot({ ...bot, ie: e.target.value as Bot["ie"] })}
+            onChange={e => setBot({ ...bot, ie: e.target.value as Bot["ie"] })}
             className="w-full p-2 border rounded-lg"
           >
             <option value="introvert">Introvert</option>
@@ -70,7 +70,7 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
 
           <select
             value={bot.sn}
-            onChange={(e) => setBot({ ...bot, sn: e.target.value as Bot["sn"] })}
+            onChange={e => setBot({ ...bot, sn: e.target.value as Bot["sn"] })}
             className="w-full p-2 border rounded-lg"
           >
             <option value="sensor">Sensor</option>
@@ -79,7 +79,7 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
 
           <select
             value={bot.tf}
-            onChange={(e) => setBot({ ...bot, tf: e.target.value as Bot["tf"] })}
+            onChange={e => setBot({ ...bot, tf: e.target.value as Bot["tf"] })}
             className="w-full p-2 border rounded-lg"
           >
             <option value="thinker">Thinker</option>
@@ -88,7 +88,7 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
 
           <select
             value={bot.jp}
-            onChange={(e) => setBot({ ...bot, jp: e.target.value as Bot["jp"] })}
+            onChange={e => setBot({ ...bot, jp: e.target.value as Bot["jp"] })}
             className="w-full p-2 border rounded-lg"
           >
             <option value="judger">Judger</option>
@@ -97,12 +97,9 @@ export const BotForm: React.FC<BotFormProps> = ({ bot, setBot, onSubmit }) => {
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-focus"
-      >
+      <button type="submit" className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-focus">
         Create Bot
       </button>
     </form>
   );
-}; 
+};

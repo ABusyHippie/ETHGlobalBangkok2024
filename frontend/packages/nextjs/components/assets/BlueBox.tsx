@@ -11,16 +11,8 @@ export default function BlueBox(props) {
     >
       <rect width="747" height="719" fill="url(#pattern0_1_6)" />
       <defs>
-        <pattern
-          id="pattern0_1_6"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use
-            xlinkHref="#image0_1_6"
-            transform="scale(0.00133869 0.00139082)"
-          />
+        <pattern id="pattern0_1_6" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_1_6" transform="scale(0.00133869 0.00139082)" />
         </pattern>
         <image
           id="image0_1_6"

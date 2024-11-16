@@ -1,4 +1,4 @@
-import { CodeBracketIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
 
 interface DocEndpointProps {
   endpoint: string;
@@ -11,16 +11,16 @@ interface DocEndpointProps {
 export const DocEndpoint = ({ endpoint, method, implementationFile, description, docsUrl }: DocEndpointProps) => {
   const getMethodColor = (method: string) => {
     switch (method.toUpperCase()) {
-      case 'GET':
-        return 'bg-blue-600/20 text-blue-400 border-blue-500/30';
-      case 'POST':
-        return 'bg-emerald-600/20 text-emerald-400 border-emerald-500/30';
-      case 'PUT':
-        return 'bg-amber-600/20 text-amber-400 border-amber-500/30';
-      case 'DELETE':
-        return 'bg-rose-600/20 text-rose-400 border-rose-500/30';
+      case "GET":
+        return "bg-blue-600/20 text-blue-400 border-blue-500/30";
+      case "POST":
+        return "bg-emerald-600/20 text-emerald-400 border-emerald-500/30";
+      case "PUT":
+        return "bg-amber-600/20 text-amber-400 border-amber-500/30";
+      case "DELETE":
+        return "bg-rose-600/20 text-rose-400 border-rose-500/30";
       default:
-        return 'bg-gray-600/20 text-gray-400 border-gray-500/30';
+        return "bg-gray-600/20 text-gray-400 border-gray-500/30";
     }
   };
 
@@ -33,9 +33,7 @@ export const DocEndpoint = ({ endpoint, method, implementationFile, description,
               <span className={`px-2 py-0.5 text-xs font-medium rounded border ${getMethodColor(method)}`}>
                 {method}
               </span>
-              <code className="px-2 py-0.5 bg-gray-800/50 rounded text-blue-300 font-mono">
-                {endpoint}
-              </code>
+              <code className="px-2 py-0.5 bg-gray-800/50 rounded text-blue-300 font-mono">{endpoint}</code>
             </div>
             {docsUrl && (
               <a
@@ -51,19 +49,15 @@ export const DocEndpoint = ({ endpoint, method, implementationFile, description,
           </div>
 
           {description && (
-            <div className="text-gray-300 text-[11px] leading-tight pl-2 border-l-2 border-gray-700">
-              {description}
-            </div>
+            <div className="text-gray-300 text-[11px] leading-tight pl-2 border-l-2 border-gray-700">{description}</div>
           )}
-          
+
           <div className="flex items-center gap-2 text-[11px] text-gray-400">
             <CodeBracketIcon className="h-3 w-3 text-gray-500" />
-            <code className="text-fuchsia-300/90 font-mono">
-              {implementationFile}
-            </code>
+            <code className="text-fuchsia-300/90 font-mono">{implementationFile}</code>
           </div>
         </div>
       </div>
     </div>
   );
-}; 
+};

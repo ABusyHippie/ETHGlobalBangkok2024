@@ -20,10 +20,7 @@ export async function GET() {
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error fetching buckets:", error);
-    return NextResponse.json(
-      { success: false, error: "Failed to fetch buckets" },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: "Failed to fetch buckets" }, { status: 500 });
   }
 }
 
@@ -34,10 +31,7 @@ export async function POST(request: Request) {
     const { bucketName } = body;
 
     if (!bucketName) {
-      return NextResponse.json(
-        { success: false, error: "Bucket name is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ success: false, error: "Bucket name is required" }, { status: 400 });
     }
 
     const response = await fetch(`${AKAVE_BACKEND_URL}/buckets`, {
@@ -52,9 +46,6 @@ export async function POST(request: Request) {
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error creating bucket:", error);
-    return NextResponse.json(
-      { success: false, error: "Failed to create bucket" },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: "Failed to create bucket" }, { status: 500 });
   }
 }

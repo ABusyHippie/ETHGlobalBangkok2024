@@ -1,4 +1,4 @@
-# FIL-Frame  🚀
+# FIL-Frame 🚀
 
 Welcome to FIL-Frame, a starter repository designed to help developers quickly get started with building decentralized applications (dApps) on the Filecoin network. This repository provides various integration options, including an example template using Lighthouse.
 
@@ -54,7 +54,7 @@ You can install them by following the instructions on these pages:
 
 ```bash
 git clone https://github.com/your-repo/fil-frame.git
-cd fil-frame 
+cd fil-frame
 ```
 
 2. Install dependencies
@@ -112,10 +112,12 @@ The flags available currently include:
 ### Akave Notes
 
 1. The user flow
+
    1. `npx create-filecoin-app` or `npx create-filecoin-app --akave` **mention required docker daemon running**
    2. Choose port for backend hosting: Default `8000`.
    3. Enter private key (We can also create one if that would create better devx) <br/>
       Internally this command runs
+
       ```
         docker pull akave/akavelink:latest
 
@@ -125,6 +127,7 @@ The flags available currently include:
         -e PRIVATE_KEY="your_private_key" \
         akave/akavelink:latest
       ```
+
    4. Do they want a working frontend `Y/N`
    5. If `Y`: Ask for port defaults to `3000`
    6. **Option 1**: Use `npm start` for running frontend separately <br/> **Option 2**: Use `docker compose up` that runs backend + frontend in one command.
@@ -180,9 +183,9 @@ The repository includes an template which makes use of Lighthouse for decentrali
 To use this integration:
 
 1. Ensure you have the Lighthouse API key set in your `.env.local` file:
-`LIGHTHOUSE_API_KEY=your_lighthouse_api_key`
+   `LIGHTHOUSE_API_KEY=your_lighthouse_api_key`
 2. Run the following command:
-`yarn dev` or `npm run dev`
+   `yarn dev` or `npm run dev`
 3. Use the provided integration to upload files to Lighthouse
 
 ## Project Structure 🗂️
@@ -207,7 +210,7 @@ my-app/
 │       │── .env.example
 │       │── package.json
 │       └── ...
-│   
+│
 ├── LICENSE
 ├── package.json
 ├── README.md
