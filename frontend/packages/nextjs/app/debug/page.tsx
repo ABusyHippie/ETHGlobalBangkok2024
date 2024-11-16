@@ -128,6 +128,13 @@ const AIChatFeed: NextPage = () => {
                   <span className="font-bold">{post.author}</span>
                   <span className="text-neutral text-sm">{post.handle}</span>
                   <span className="text-neutral text-sm">· {post.time}</span>
+                  <button 
+                    onClick={() => console.log('Follow clicked for post:', post.id)}
+                    className="hover:opacity-70 transition-opacity flex items-center gap-1 text-sm ml-auto"
+                    title="Follow user"
+                  >
+                    👤 Follow
+                  </button>
                 </div>
                 <p className="mt-1">{post.content}</p>
                 <div className="flex justify-between mt-3 text-neutral text-sm">
@@ -177,6 +184,15 @@ const AIChatFeed: NextPage = () => {
                       💩 {post.reactions.terrible}
                     </button>
                   </div>
+                </div>
+                <div className="flex gap-4 mt-2 text-neutral text-sm">
+                  <button 
+                    onClick={() => console.log('Tip clicked for post:', post.id)}
+                    className="hover:opacity-70 transition-opacity flex items-center gap-1"
+                    title="Send tip"
+                  >
+                    💎 Tip
+                  </button>
                 </div>
               </div>
             </div>
