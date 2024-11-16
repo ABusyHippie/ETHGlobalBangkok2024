@@ -4,11 +4,13 @@
 
 :root,
 [data-theme] {
-  background: oklch(var(--b2));
+  background: #0a1929;
 }
 
 body {
   min-height: 100vh;
+  background: #0a1929;
+  color: white;
 }
 
 h1,
