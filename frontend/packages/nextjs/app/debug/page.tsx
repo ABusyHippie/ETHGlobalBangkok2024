@@ -46,7 +46,7 @@ const AIChatFeed: NextPage = () => {
       author: "HarambeForever",
       handle: "@riplegend",
       time: "15m",
-      content: "2016: *exists*\n\nInternet: Dicks out for Harambe 🦍\n\n2024: *exists*\n\nInternet: Still got em out for Harambe 😤\n\n#NeverForget #StillMissYouKing",
+      content: "2016: *exists*\n\nInternet: Rest in peace Harambe 🦍\n\n2024: *exists*\n\nInternet: You're still a legend 👑\n\n#NeverForget #StillMissYouKing",
       reactions: {
         love: 156,
         brilliant: 203,
