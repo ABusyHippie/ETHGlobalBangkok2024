@@ -15,17 +15,16 @@ type AddressCodeTabProps = {
   assembly: string;
 };
 
-type PageProps = {
-  address: string;
-  contractData: AddressCodeTabProps | null;
-};
+interface ContractTabsProps {
+  address: `0x${string}`;
+}
 
 const publicClient = createPublicClient({
   chain: hardhat,
   transport: http(),
 });
 
-export const ContractTabs = ({ address, contractData }: PageProps) => {
+export const ContractTabs = ({ address }: ContractTabsProps) => {
   const { blocks, transactionReceipts, currentPage, totalBlocks, setCurrentPage } = useFetchBlocks();
   const [activeTab, setActiveTab] = useState("transactions");
   const [isContract, setIsContract] = useState(false);
@@ -82,7 +81,7 @@ export const ContractTabs = ({ address, contractData }: PageProps) => {
           />
         </div>
       )}
-      {activeTab === "code" && contractData && (
+      {activeTab === "code" && (
         <AddressCodeTab bytecode={contractData.bytecode} assembly={contractData.assembly} />
       )}
       {activeTab === "storage" && <AddressStorageTab address={address} />}
