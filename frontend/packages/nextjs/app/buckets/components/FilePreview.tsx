@@ -30,7 +30,7 @@ export const FilePreview = ({ file, bucketName, isOpen, onToggle }: FilePreviewP
   };
 
   return (
-    <div className="border-b border-gray-200 last:border-none hover:bg-gray-50">
+    <div className="border-b border-gray-200 last:border-none hover:bg-blue-900">
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center space-x-3 flex-1 cursor-pointer" onClick={onToggle}>
           <div className="w-6">
@@ -42,8 +42,8 @@ export const FilePreview = ({ file, bucketName, isOpen, onToggle }: FilePreviewP
           </div>
           <span className="text-xl">{fileInfo.icon}</span>
           <div className="flex-1 min-w-0">
-            <div className="font-medium text-gray-900 truncate">{file.Name}</div>
-            <div className="text-xs text-gray-500">
+            <div className="font-medium text-gray-300 truncate">{file.Name}</div>
+            <div className="text-xs text-gray-600">
               {formatFileSize(file.Size)} • {formatDate(file.CreatedAt)}
             </div>
           </div>
@@ -53,7 +53,7 @@ export const FilePreview = ({ file, bucketName, isOpen, onToggle }: FilePreviewP
           <div className="relative">
             <button
               onClick={handleShare}
-              className="btn bg-gray-100 hover:bg-gray-200 text-gray-800 border-2 border-black btn-sm"
+              className="btn bg-gray-100 hover:bg-gray-400 text-gray-500 border-2 border-black btn-sm"
               title="Copy download link"
             >
               <ShareIcon className="h-4 w-4" />
