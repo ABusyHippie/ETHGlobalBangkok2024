@@ -17,6 +17,7 @@ type AddressCodeTabProps = {
 
 interface ContractTabsProps {
   address: `0x${string}`;
+  contractData: { bytecode: string; assembly: string; } | null;
 }
 
 const publicClient = createPublicClient({
@@ -24,7 +25,7 @@ const publicClient = createPublicClient({
   transport: http(),
 });
 
-export const ContractTabs = ({ address }: ContractTabsProps) => {
+export const ContractTabs = ({ address, contractData }: ContractTabsProps) => {
   const { blocks, transactionReceipts, currentPage, totalBlocks, setCurrentPage } = useFetchBlocks();
   const [activeTab, setActiveTab] = useState("transactions");
   const [isContract, setIsContract] = useState(false);
@@ -82,7 +83,7 @@ export const ContractTabs = ({ address }: ContractTabsProps) => {
         </div>
       )}
       {activeTab === "code" && (
-        <AddressCodeTab bytecode={contractData.bytecode} assembly={contractData.assembly} />
+        <AddressCodeTab bytecode={contractData?.bytecode} assembly={contractData?.assembly} />
       )}
       {activeTab === "storage" && <AddressStorageTab address={address} />}
       {activeTab === "logs" && <AddressLogsTab address={address} />}
