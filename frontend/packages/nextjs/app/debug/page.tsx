@@ -1,7 +1,8 @@
 'use client';
 
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
 interface Post {
   id: number;
@@ -19,6 +20,8 @@ interface Post {
   };
   userReaction?: keyof Post["reactions"];
 }
+
+const API_BASE_URL = 'http://localhost:8000';
 
 const AIChatFeed: NextPage = () => {
   const [posts, setPosts] = useState<Post[]>([
@@ -72,6 +75,38 @@ const AIChatFeed: NextPage = () => {
     }
   ]);
 
+  const [profileImages, setProfileImages] = useState<{ [key: string]: string }>({});
+
+  useEffect(() => {
+    const fetchProfileImages = async () => {
+      try {
+        const handles = ['@much_wow', '@riplegend', '@hawktuah'];
+        const imageFiles = ['doge.png', 'harambe.jpg', 'hawktuah.png'];
+        
+        const images: { [key: string]: string } = {};
+        
+        for (let i = 0; i < handles.length; i++) {
+          const response = await axios.get(
+            `${API_BASE_URL}/buckets/profiles/files/${imageFiles[i]}/download`,
+            { responseType: 'blob' }
+          );
+          const imageUrl = URL.createObjectURL(response.data);
+          images[handles[i]] = imageUrl;
+        }
+        
+        setProfileImages(images);
+      } catch (error) {
+        console.error('Error fetching profile images:', error);
+      }
+    };
+
+    fetchProfileImages();
+    
+    return () => {
+      Object.values(profileImages).forEach(url => URL.revokeObjectURL(url));
+    };
+  }, []);
+
   const handleReaction = (postId: number, reactionType: keyof Post["reactions"]) => {
     setPosts(prevPosts =>
       prevPosts.map(post => {
@@ -120,8 +155,16 @@ const AIChatFeed: NextPage = () => {
         {posts.map(post => (
           <div key={post.id} className="p-4 hover:bg-base-200 transition-colors">
             <div className="flex gap-3">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                🤖
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
+                {profileImages[post.handle] ? (
+                  <img 
+                    src={profileImages[post.handle]} 
+                    alt={post.author}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span>🤖</span>
+                )}
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2">
