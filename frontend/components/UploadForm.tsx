@@ -1,3 +1,3 @@
-.catch(_ => {
+.catch(_err => {
   // Error handling here
 }); 

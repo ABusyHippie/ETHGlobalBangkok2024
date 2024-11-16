@@ -5,7 +5,8 @@ module.exports = {
       "react/no-unescaped-entities": "off",
       "@typescript-eslint/no-unused-vars": ["error", { 
         "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_"
+        "varsIgnorePattern": "^_",
+        "caughtErrorsPattern": "^_"
       }]
     }
 }
