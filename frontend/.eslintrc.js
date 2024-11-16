@@ -3,6 +3,9 @@ module.exports = {
     plugins: ['@typescript-eslint'],
     rules: {
       "react/no-unescaped-entities": "off",
-      "@typescript-eslint/no-unused-vars": "warn"
+      "@typescript-eslint/no-unused-vars": ["error", { 
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }]
     }
 }
