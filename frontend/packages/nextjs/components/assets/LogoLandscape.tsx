@@ -1,4 +1,6 @@
-export default function LogoLandscape(props) {
+import { SVGProps } from "react";
+
+export default function LogoLandscape(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -13,7 +15,7 @@ export default function LogoLandscape(props) {
         width={props.width || "1054"}
         height={props.height || "208"}
         fill="url(#pattern0_18_2)"
-        y={props.height ? (208 - props.height) / 2 : 0}
+        y={props.height ? (208 - +props.height) / 2 : 0}
       />
       <defs>
         <pattern id="pattern0_18_2" patternContentUnits="objectBoundingBox" width="1" height="1">

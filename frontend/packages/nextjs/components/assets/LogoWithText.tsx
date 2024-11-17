@@ -1,4 +1,6 @@
-export default function LogoWithText(props) {
+import { SVGProps } from "react";
+
+export default function LogoWithText(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

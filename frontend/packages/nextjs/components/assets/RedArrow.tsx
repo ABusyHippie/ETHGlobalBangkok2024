@@ -1,4 +1,6 @@
-export default function RedArrow(props) {
+import { SVGProps } from "react";
+
+export default function RedArrow(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
