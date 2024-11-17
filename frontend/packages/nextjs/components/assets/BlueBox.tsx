@@ -1,4 +1,6 @@
-export default function BlueBox(props) {
+import { SVGProps } from 'react';
+
+export default function BlueBox(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

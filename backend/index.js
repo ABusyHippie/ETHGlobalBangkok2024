@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const sys = require('sys');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -9,6 +9,38 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+const { spawn } = require('child_process');
+
+function runPythonScript(scriptPath, args = []) {
+  return new Promise((resolve, reject) => {
+    const pythonProcess = spawn('python', [scriptPath, ...args]);
+
+    let output = '';
+    let error = '';
+
+    pythonProcess.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+      error += data.toString();
+    });
+
+    pythonProcess.on('close', (code) => {
+      if (code === 0) {
+        resolve(output.trim());
+      } else {
+        reject(new Error(`Script exited with code ${code}: ${error.trim()}`));
+      }
+    });
+  });
+}
+
+runPythonScript('example.py', ['arg1', 'arg2'])
+  .then((result) => console.log('Python Output:', result))
+  .catch((err) => console.error('Error:', err));
+
 
 // Controller functions (to be implemented)
 const controllers = {
