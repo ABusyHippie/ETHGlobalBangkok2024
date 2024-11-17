@@ -1,7 +1,7 @@
-type AddressCodeTabProps = {
+interface AddressCodeTabProps {
   bytecode: string;
   assembly: string;
-};
+}
 
 export const AddressCodeTab = ({ bytecode, assembly }: AddressCodeTabProps) => {
   const formattedAssembly = Array.from(assembly.matchAll(/\w+( 0x[a-fA-F0-9]+)?/g))

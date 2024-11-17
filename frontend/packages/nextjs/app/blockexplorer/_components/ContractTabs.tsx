@@ -83,7 +83,10 @@ export const ContractTabs = ({ address, contractData }: ContractTabsProps) => {
         </div>
       )}
       {activeTab === "code" && (
-        <AddressCodeTab bytecode={contractData?.bytecode} assembly={contractData?.assembly} />
+        <AddressCodeTab 
+          bytecode={contractData?.bytecode || ""} 
+          assembly={contractData?.assembly || ""} 
+        />
       )}
       {activeTab === "storage" && <AddressStorageTab address={address} />}
       {activeTab === "logs" && <AddressLogsTab address={address} />}
