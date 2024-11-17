@@ -4,12 +4,12 @@ export default function BlueBox(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
-      width={props.width || "747"}
-      height={props.height || "719"}
+      width="747"
+      height="719"
       viewBox="0 0 747 719"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
     >
       <rect width="747" height="719" fill="url(#pattern0_1_6)" />
       <defs>
