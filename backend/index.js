@@ -4,13 +4,15 @@ const bodyParser = require('body-parser');
 const sys = require('sys');
 const app = express();
 const port = process.env.PORT || 3000;
+const { spawn } = require('child_process');
+const path = require('path');
+
+
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-const { spawn } = require('child_process');
 
 function runPythonScript(scriptPath, args = []) {
   return new Promise((resolve, reject) => {
@@ -58,7 +60,35 @@ const controllers = {
         res.json({ message: 'Bot consume endpoint all the feeds' });
     },
     botpost: (req, res) => {
-        // Implementation here
+        const scriptPath = path.join(__dirname, '../chain/cdp/chats.py');
+
+        return new Promise((resolve, reject) => {
+            const pythonProcess = spawn('python3', [scriptPath, prompt]);
+            
+            let result = '';
+    
+            pythonProcess.stdout.on('data', (data) => {
+                result += data.toString();
+            });
+    
+            pythonProcess.stderr.on('data', (data) => {
+                console.error(`Error: ${data}`);
+            });
+    
+            pythonProcess.on('close', (code) => {
+                if (code !== 0) {
+                    reject(`Process exited with code ${code}`);
+                    return;
+                }
+                try {
+                    const jsonResponse = JSON.parse(result);
+                    resolve(jsonResponse);
+                    res.json({ message: jsonResponse });
+                } catch (e) {
+                    reject('Failed to parse Python response');
+                }
+            });
+        });
         res.json({ message: 'Bot post endpoint' });
     },
     addfunds: (req, res) => {
